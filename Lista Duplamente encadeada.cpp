@@ -1,10 +1,10 @@
 #include <iostream>
-#include <locale.h>//Bibliteca de linguagem, adiciona acentuação e variações linguisticas
+#include <locale.h>//Bibliteca de linguagem, adiciona acentuaÃ§Ã£o e variaÃ§Ãµes linguisticas
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <iomanip>//Biblioteca para mapear posicionamento(organização e disposição dentro do codigo)
-#include <ctype.h>//Biblioteca para converter carecteres minusculos e maiusculos(padronização de exibição dentro do codigo)
+#include <iomanip>//Biblioteca para mapear posicionamento(organizaÃ§Ã£o e disposiÃ§Ã£o dentro do codigo)
+#include <ctype.h>//Biblioteca para converter carecteres minusculos e maiusculos(padronizaÃ§Ã£o de exibiÃ§Ã£o dentro do codigo)
 using namespace std;
 
 //Struct dos dados
@@ -16,7 +16,7 @@ struct Pessoa{
 //Estruct de encadeamento da lista
 struct elemento{
 	elemento *ant;//ponteiro para o elemento anterior
-	Pessoa dado;//armazenamento de informações
+	Pessoa dado;//armazenamento de informaÃ§Ãµes
 	elemento *prox;//ponteiro para o proximo elemento
 };typedef struct elemento Elem;
 
@@ -95,7 +95,7 @@ void Ordenar(Lista *lst)
 	Elem *aux, *no= *lst;
 	Pessoa dados;
 	
-	//estrutura de repetição Aninhada para comparar os elementos
+	//estrutura de repetiÃ§Ã£o Aninhada para comparar os elementos
 	for(no; no != NULL;no = no->prox)
 	{
 		for(aux = no->prox; aux != NULL; aux = aux->prox)
@@ -116,25 +116,25 @@ void Imprimir(Lista *lst)
 	Elem *imprimir;
 	if ((*lst) == NULL)
 	{
-		cout<<"Não é possivel imprimir a lista pois ela está vazia!"<<endl;
+		cout<<"NÃ£o Ã© possivel imprimir a lista pois ela estÃ¡ vazia!"<<endl;
 		return;
 	}
 	cout<<endl<<"--------------------------------------------"<<endl;
 	cout<<"Nome";
-	cout.fill(' ');//Comando estetico para preenchimento após o campo "Nome" afim de manter o alinhamento desejado
+	cout.fill(' ');//Comando estetico para preenchimento apÃ³s o campo "Nome" afim de manter o alinhamento desejado
 	cout.width(36);//marca o limite do preenchimento.
-	cout<<"Ídade\tSexo"<<endl;
+	cout<<"Ãdade\tSexo"<<endl;
 	cout<<"--------------------------------------------"<<endl;
 	
 	for(imprimir = *lst;imprimir != NULL; imprimir = imprimir->prox)
 	{
 		cout<<imprimir->dado.nome;
-		//For para alinhamento estetico , strlen conta o número de characteres contido em "nome" e realiza o preenchimento do restante até o limite(30)
+		//For para alinhamento estetico , strlen conta o nÃºmero de characteres contido em "nome" e realiza o preenchimento do restante atÃ© o limite(30)
 		for (int cont = strlen(imprimir->dado.nome); cont<=30;cont++)	
 			cout<<" ";
-		cout<<imprimir->dado.idade<<"\t "<<char(toupper(imprimir->dado.sexo))<<endl<<endl;//função toupper converte letras minusculas para maiusculas
-	}																				//Porem retorna um valor int por isto necessario usar "Char()" para realizar
-}																					//uma conversão do valor inteiro retornado para um charactere
+		cout<<imprimir->dado.idade<<"\t "<<char(toupper(imprimir->dado.sexo))<<endl<<endl;//funÃ§Ã£o toupper converte letras minusculas para maiusculas
+	}											  //Porem retorna um valor int por isto necessario usar "Char()" para realizar
+}												  //uma conversÃ£o do valor inteiro retornado para um charactere
 
 //Imprimir percorrendo a lista de traz para a frente(inverso)
 void Imprimir_inverso(Lista *lst)
@@ -143,7 +143,7 @@ void Imprimir_inverso(Lista *lst)
 	
 	if ((*lst) == NULL)
 	{
-		cout<<"Não é possivel imprimir a lista pois ela está vazia!"<<endl;
+		cout<<"NÃ£o Ã© possivel imprimir a lista pois ela estÃ¡ vazia!"<<endl;
 		return;
 	}
 	
@@ -151,7 +151,7 @@ void Imprimir_inverso(Lista *lst)
 	cout<<"Nome";
 	cout.fill(' ');
 	cout.width(36);
-	cout<<"Ídade\tSexo"<<endl;
+	cout<<"Ãdade\tSexo"<<endl;
 	cout<<"--------------------------------------------"<<endl;
 	
 	imprimir = *lst;
@@ -167,7 +167,7 @@ void Imprimir_inverso(Lista *lst)
 		cout<<imprimir->dado.idade<<"\t "<<char(toupper(imprimir->dado.sexo))<<endl<<endl;
 	}
 }
-//Remover elemento realizando comparação de nome
+//Remover elemento realizando comparaÃ§Ã£o de nome
 int Buscar_remover (Lista *lst,char busca[30])
 {
 		Elem *no = *lst;
@@ -175,9 +175,9 @@ int Buscar_remover (Lista *lst,char busca[30])
 		while(no != NULL && strcmp(no->dado.nome,busca)!= 0)
 			no = no->prox;
 			
-		if (no == NULL)//Elemento não encontrado
+		if (no == NULL)//Elemento nÃ£o encontrado
 		{
-			cout<<busca<<" Não foi encontrado na lista."<<endl<<endl;
+			cout<<busca<<" NÃ£o foi encontrado na lista."<<endl<<endl;
 			return 0;		
 		}
 		cout<<no->dado.nome<<" foi removido da lista."<<endl<<endl;
@@ -197,9 +197,9 @@ int Buscar_remover (Lista *lst,char busca[30])
 //Remover elemento da lista
 int Remover_inicio(Lista *lst)
 {
-	if ((*lst) == NULL)//Verificação de lista vazia
+	if ((*lst) == NULL)//VerificaÃ§Ã£o de lista vazia
 	{
-		cout<<"Não é possivel remover o primeiro elemento da lista pois ela está vazia!"<<endl;
+		cout<<"NÃ£o Ã© possivel remover o primeiro elemento da lista pois ela estÃ¡ vazia!"<<endl;
 		return 1;
 	}
 	
@@ -208,7 +208,7 @@ int Remover_inicio(Lista *lst)
 
 	cout<<no->dado.nome<<" Foi removido da lista.";
 	
-	if (no->prox != NULL)//verifica se o proximo é diferente de null caso seja altera o ponteiro
+	if (no->prox != NULL)//verifica se o proximo Ã© diferente de null caso seja altera o ponteiro
 		no->prox->ant = NULL;
 		
 	free(no);	
@@ -219,7 +219,7 @@ int Remover_fim(Lista *lst)
 {
 	if ((*lst) == NULL)
 	{
-		cout<<"Não é possivel remover o último elemento da lista pois ela está vazia!"<<endl;
+		cout<<"NÃ£o Ã© possivel remover o Ãºltimo elemento da lista pois ela estÃ¡ vazia!"<<endl;
 		return 1;
 	}
 		Elem *no = *lst;
@@ -247,9 +247,9 @@ int menu ()
 	{
 		system("cls");
 		cout<<"----------------------------------------------"<<endl;
-		cout<<"Escolha uma opção:                            "<<endl;
+		cout<<"Escolha uma opÃ§Ã£o:                            "<<endl;
 		cout<<"----------------------------------------------"<<endl;	
-		cout<<" [1] - Inserir uma pessoa no início da lista. "<<endl;	
+		cout<<" [1] - Inserir uma pessoa no inÃ­cio da lista. "<<endl;	
 		cout<<"                                              "<<endl;
 		cout<<" [2] - Inserir uma pessoa no fim da lista.    "<<endl;	
 		cout<<"                                              "<<endl;	
@@ -263,7 +263,7 @@ int menu ()
 		cout<<"                                              "<<endl;		
 		cout<<" [7] - Remover o primeiro elemento.           "<<endl;
 		cout<<"                                              "<<endl;	
-		cout<<" [8] - Remover o último elemento.             "<<endl;
+		cout<<" [8] - Remover o Ãºltimo elemento.             "<<endl;
 		cout<<"                                              "<<endl;		
 		cout<<" [0] - Encerrar o programa.                   "<<endl;
 		cout<<"----------------------------------------------"<<endl;
@@ -276,10 +276,10 @@ int menu ()
 
 int main ()
 {
-//Seleção de idioma para utilização de acentos
+//SeleÃ§Ã£o de idioma para utilizaÃ§Ã£o de acentos
 	setlocale(LC_ALL,"Portuguese");
 	
-//Declaração de variaveis
+//DeclaraÃ§Ã£o de variaveis
 	Lista *lst;
 	Pessoa Dado_pessoa;
 	int escolha;
@@ -295,7 +295,7 @@ int main ()
 	{
 		switch (escolha)
 		{
-			// [1] - Inserir uma pessoa no início da lista
+			// [1] - Inserir uma pessoa no inÃ­cio da lista
 			case 1:
 	
 				system("cls");
@@ -308,11 +308,11 @@ int main ()
 				cout<<"Sexo:";
 				cin>>Dado_pessoa.sexo;
 				cout<<"---------------------------------------"<<endl;
-				cout<<"Ídade:";
+				cout<<"Ãdade:";
 				cin>>Dado_pessoa.idade;
 				cout<<"---------------------------------------"<<endl<<endl;
 				
-				Inserir_inicio(lst,Dado_pessoa);//Armazena os dados recebidos na "struct pessoa" para depois passar as informações para o novo nó
+				Inserir_inicio(lst,Dado_pessoa);//Armazena os dados recebidos na "struct pessoa" para depois passar as informaÃ§Ãµes para o novo nÃ³
 				
 				cout<<"Precione Qualquer tecla para retornar ao menu...";
 				system("pause>>NULL");				
@@ -331,11 +331,11 @@ int main ()
 				cout<<"Sexo:";
 				cin>>Dado_pessoa.sexo;
 				cout<<"---------------------------------------"<<endl;
-				cout<<"Ídade:";
+				cout<<"Ãdade:";
 				cin>>Dado_pessoa.idade;
 				cout<<"---------------------------------------"<<endl<<endl;
 				
-				Inserir_fim(lst,Dado_pessoa);//Armazena os dados recebidos na "struct pessoa" para depois passar as informações para o novo no
+				Inserir_fim(lst,Dado_pessoa);//Armazena os dados recebidos na "struct pessoa" para depois passar as informaÃ§Ãµes para o novo no
 				
 				cout<<"Precione Qualquer tecla para retornar ao menu...";
 				system("pause>>NULL");				
@@ -344,12 +344,12 @@ int main ()
 			// [3] - Organizar lista em ordem alfabetica
 			case 3:
 				system("cls");
-				if ((*lst) == NULL)//Verificação de lista vazia
-					cout<<"Não foi possivel ordernar a lista pois ela está vazia!"<<endl<<endl;
+				if ((*lst) == NULL)//VerificaÃ§Ã£o de lista vazia
+					cout<<"NÃ£o foi possivel ordernar a lista pois ela estÃ¡ vazia!"<<endl<<endl;
 					
 				else
 				{
-					Ordenar(lst);//Função de ordenação que recebe a lista como parametro
+					Ordenar(lst);//FunÃ§Ã£o de ordenaÃ§Ã£o que recebe a lista como parametro
 					cout<<endl<<"lista Ordenada com Sucesso!"<<endl<<endl;
 				}				
 				cout<<"Precione Qualquer tecla para retornar ao menu...";
@@ -359,7 +359,7 @@ int main ()
 			// [4] - Imprimir a lista.
 			case 4:
 				system("cls");	
-				Imprimir(lst);//Função de impressão da lista(completa)
+				Imprimir(lst);//FunÃ§Ã£o de impressÃ£o da lista(completa)
 				cout<<endl<<"Precione Qualquer tecla para retornar ao menu...";
 				system("pause>>NULL");
 				break;
@@ -367,7 +367,7 @@ int main ()
 			//[5] - Imprimir a lista inversa
 			case 5:
 				system("cls");
-				Imprimir_inverso(lst);//Função de impressão da lista (inversa)
+				Imprimir_inverso(lst);//FunÃ§Ã£o de impressÃ£o da lista (inversa)
 				cout<<endl<<"Precione Qualquer tecla para retornar ao menu...";
 				system("pause>>NULL");
 				break;
@@ -375,12 +375,12 @@ int main ()
 			// [6] - Buscar e remover pelo nome
 			case 6:
 				system("cls");
-				if ((*lst) == NULL)//Verificação de lista vazia
-					cout<<"Não é possivel remover um nome da lista pois ela está vazia!"<<endl;	
+				if ((*lst) == NULL)//VerificaÃ§Ã£o de lista vazia
+					cout<<"NÃ£o Ã© possivel remover um nome da lista pois ela estÃ¡ vazia!"<<endl;	
 						
 				else
 				{
-					cout<<"Informe o nome que será removido:";
+					cout<<"Informe o nome que serÃ¡ removido:";
 					fflush(stdin);
 					gets(busca);
 					fflush(stdin);
@@ -399,7 +399,7 @@ int main ()
 				system("pause>>NULL");
 				break;
 				
-			//	[8] - Remover o último elemento.
+			//	[8] - Remover o Ãºltimo elemento.
 			case 8:
 				system("cls");
 				Remover_fim(lst);
